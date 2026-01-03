@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rakhsa Infra Tech | Digital Card</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#071825">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="particles">
+  <span class="particle"></span>
+  <span class="particle"></span>
+  <span class="particle"></span>
+  <span class="particle"></span>
+  <span class="particle"></span>
+</div>
+
+<div class="page">
+  <div class="card">
+
+    <img src="profile.jpg" alt="Profile Photo" class="profile-pic">
+
+    <h1>Muhammed Ashkar Muthuvatt</h1>
+    <h2>IT Solutions Specialist</h2>
+
+    <img src="logo.png" alt="Rakhsa Infra Tech Logo" class="logo">
+
+    <div class="slogan">
+      Reliable IT & Smart Infrastructure Solutions
+    </div>
+
+    <div class="buttons">
+
+   <a onclick="saveContact()" class="save save-attention">
+  <i class="fas fa-user-plus"></i>
+  <span>Save Contact</span>
+</a>
+
+
+      <a href="https://wa.me/971568486808" class="whatsapp">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+
+      <a href="tel:+971568486808" class="call">
+        <i class="fas fa-phone"></i> Call Now
+      </a>
+
+      <a href="https://rakhsainfratech.github.io/home/" class="website">
+        <i class="fas fa-globe"></i> Visit Website
+      </a>
+
+      <a onclick="shareCard()" class="share">
+        <i class="fas fa-share-nodes"></i> Share This Card
+      </a>
+    </div>
+
+    <!-- TIP WITH WAVE ANIMATION -->
+    <div class="tip-wave">
+      Tip: Save contact first for easier WhatsApp identification
+    </div>
+
+    <div class="socials">
+      <a href="https://instagram.com/rakhsa_uae" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/rakhsauae" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://tiktok.com/@rakhsa_uae" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <div class="footer">
+      UAE | Ajman • Sharjah • Dubai<br>
+      rakhsainfratech@gmail.com
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function saveContact() {
+    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    const vcard = 'rakhsa-infra-tech.vcf';
+    isIOS ? window.open(vcard, '_blank') : window.location.href = vcard;
+  }
+
+  function shareCard() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Rakhsa Infra Tech – Digital Card',
+        text: 'Save my contact and connect with Rakhsa Infra Tech',
+        url: 'https://rakhsainfratech.github.io/card/'
+      });
+    }
+  }
+</script>
+
+</body>
+</html>

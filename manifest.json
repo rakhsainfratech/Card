@@ -1,0 +1,16 @@
+{
+  "name": "Rakhsa Infra Tech",
+  "short_name": "Rakhsa",
+  "start_url": "/card/",
+  "display": "standalone",
+  "background_color": "#071825",
+  "theme_color": "#071825",
+  "description": "Rakhsa Infra Tech – Digital Business Card",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
