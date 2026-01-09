@@ -62,7 +62,7 @@ body {
 
 /* CARD */
 .card {
-  position: relative;
+  position: relative; /* REQUIRED for absolute positioning inside */
   z-index: 1;
   width: 100%;
   max-width: 420px;
@@ -74,6 +74,27 @@ body {
   box-shadow: 0 0 35px rgba(0,0,0,0.6);
 }
 
+/* ✅ LANGUAGE TOGGLE – FIXED TOP RIGHT */
+.lang-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.lang-toggle button {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid #9cc4ff;
+  color: #9cc4ff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* PROFILE */
 .profile-pic {
   width: 120px;
   height: 120px;
@@ -96,6 +117,7 @@ h2 {
   margin-bottom: 12px;
 }
 
+/* LOGO */
 .logo {
   width: 84px;
   margin: 6px auto 12px;
@@ -137,7 +159,7 @@ h2 {
   box-shadow: 0 10px 24px rgba(0,0,0,0.35);
 }
 
-/* BLINK / PULSE FOR SAVE CONTACT BUTTON */
+/* SAVE CONTACT ATTENTION */
 .save-attention {
   animation: pulseGlow 2.2s ease-in-out infinite;
 }
@@ -148,7 +170,6 @@ h2 {
   100% { box-shadow: 0 0 0 rgba(255,255,255,0); }
 }
 
-/* ✅ WAVE ANIMATION FOR SAVE CONTACT TEXT ONLY */
 .save-attention span {
   display: inline-block;
   animation: textWave 1.8s ease-in-out infinite;
@@ -168,7 +189,7 @@ h2 {
 .website  { background: #1abc9c; }
 .share    { background: #34495e; }
 
-/* TIP TEXT WAVE */
+/* TIP */
 .tip-wave {
   margin-top: 6px;
   font-size: 12px;

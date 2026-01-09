@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rakhsa Infra Tech | Digital Card</title>
 
-  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#071825">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <!-- External CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -31,77 +28,134 @@
 <div class="page">
   <div class="card">
 
-    <img src="profile.jpg" alt="Profile Photo" class="profile-pic">
+    <div class="lang-toggle">
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+      <button id="btn-ar" onclick="setLang('ar')">AR</button>
+    </div>
 
-    <h1>Muhammed Ashkar Muthuvatt</h1>
-    <h2>IT Solutions Specialist</h2>
+    <img src="profile.jpg" class="profile-pic">
 
-    <img src="logo.png" alt="Rakhsa Infra Tech Logo" class="logo">
+    <h1 data-key="name">Muhammed Ashkar Muthuvatt</h1>
+    <h2 data-key="designation">IT Infrastructure Technician</h2>
 
-    <div class="slogan">
-      Reliable IT & Smart Infrastructure Solutions
+    <!-- LOGO ALWAYS VISIBLE -->
+    <img src="logo.png" class="logo">
+
+    <div class="slogan" data-key="slogan">
+      Reliable IT & Smart Infrastructure Solutions, From Sales To Support
     </div>
 
     <div class="buttons">
-
-   <a onclick="saveContact()" class="save save-attention">
-  <i class="fas fa-user-plus"></i>
-  <span>Save Contact</span>
-</a>
-
+      <a onclick="saveContact()" class="save save-attention">
+        <i class="fas fa-user-plus"></i>
+        <span data-key="save">Save Contact</span>
+      </a>
 
       <a href="https://wa.me/971568486808" class="whatsapp">
-        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        <i class="fab fa-whatsapp"></i>
+        <span data-key="whatsapp">Chat on WhatsApp</span>
       </a>
 
       <a href="tel:+971568486808" class="call">
-        <i class="fas fa-phone"></i> Call Now
+        <i class="fas fa-phone"></i>
+        <span data-key="call">Call Now</span>
+      </a>
+
+      <a href="mailto:rakhsainfratech@gmail.com?subject=IT%20Infrastructure%20Enquiry" class="call">
+        <i class="fas fa-envelope"></i>
+        <span data-key="email">Send Email</span>
       </a>
 
       <a href="https://rakhsainfratech.github.io/home/" class="website">
-        <i class="fas fa-globe"></i> Visit Website
+        <i class="fas fa-globe"></i>
+        <span data-key="website">Visit Website</span>
       </a>
 
       <a onclick="shareCard()" class="share">
-        <i class="fas fa-share-nodes"></i> Share This Card
+        <i class="fas fa-share-nodes"></i>
+        <span data-key="share">Share This Card</span>
       </a>
     </div>
 
-    <!-- TIP WITH WAVE ANIMATION -->
-    <div class="tip-wave">
+    <div class="tip-wave" data-key="tip">
       Tip: Save contact first for easier WhatsApp identification
     </div>
 
     <div class="socials">
-      <a href="https://instagram.com/rakhsa_uae" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com/rakhsauae" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://tiktok.com/@rakhsa_uae" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://instagram.com/rakhsa_uae"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/rakhsauae"><i class="fab fa-facebook"></i></a>
+      <a href="https://tiktok.com/@rakhsa_uae"><i class="fab fa-tiktok"></i></a>
+      <a href="https://pinterest.com/rakhsa_uae"><i class="fab fa-pinterest"></i></a>
+      <a href="https://www.linkedin.com/in/ashkar2u"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/@rakhsa_uae"><i class="fab fa-youtube"></i></a>
     </div>
 
-    <div class="footer">
-      UAE | Ajman • Sharjah • Dubai<br>
-      rakhsainfratech@gmail.com
+    <div class="footer" data-key="footer">
+      UAE | Ajman • Sharjah • Dubai
     </div>
 
   </div>
 </div>
 
 <script>
-  function saveContact() {
-    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-    const vcard = 'rakhsa-infra-tech.vcf';
-    isIOS ? window.open(vcard, '_blank') : window.location.href = vcard;
+const translations = {
+  en: {
+    name: "Muhammed Ashkar Muthuvatt",
+    designation: "IT Infrastructure Technician",
+    slogan: "Reliable IT & Smart Infrastructure Solutions, From Sales To Support",
+    save: "Save Contact",
+    whatsapp: "Chat on WhatsApp",
+    call: "Call Now",
+    email: "Send Email",
+    website: "Visit Website",
+    share: "Share This Card",
+    tip: "Tip: Save contact first for easier WhatsApp identification",
+    footer: "UAE | Ajman • Sharjah • Dubai"
+  },
+  ar: {
+    name: "محمد اشكر مدوات",
+    designation: "فني البنية التحتية لتقنية المعلومات",
+    slogan: "حلول تقنية معلومات وبنية تحتية ذكية موثوقة، من البيع إلى الدعم",
+    save: "حفظ جهة الاتصال",
+    whatsapp: "الدردشة عبر واتساب",
+    call: "اتصال الآن",
+    email: "إرسال بريد إلكتروني",
+    website: "زيارة الموقع",
+    share: "مشاركة البطاقة",
+    tip: "نصيحة: احفظ جهة الاتصال أولاً لسهولة التعرف عبر واتساب",
+    footer: "الإمارات العربية المتحدة | عجمان • الشارقة • دبي"
   }
+};
 
-  function shareCard() {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Rakhsa Infra Tech – Digital Card',
-        text: 'Save my contact and connect with Rakhsa Infra Tech',
-        url: 'https://rakhsainfratech.github.io/card/'
-      });
-    }
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-key]").forEach(el => {
+    el.textContent = translations[lang][el.dataset.key];
+  });
+
+  document.getElementById("btn-en").style.display = lang === "en" ? "none" : "inline-block";
+  document.getElementById("btn-ar").style.display = lang === "ar" ? "none" : "inline-block";
+}
+
+setLang("en");
+
+function saveContact() {
+  const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const vcard = 'rakhsa-infra-tech.vcf';
+  isIOS ? window.open(vcard) : window.location.href = vcard;
+}
+
+function shareCard() {
+  if (navigator.share) {
+    navigator.share({
+      title: "Rakhsa Infra Tech – Digital Card",
+      text: "Save my contact and connect with Rakhsa Infra Tech",
+      url: "https://rakhsainfratech.github.io/card/"
+    });
   }
+}
 </script>
 
 </body>
